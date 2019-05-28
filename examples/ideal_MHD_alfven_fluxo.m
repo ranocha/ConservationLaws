@@ -14,7 +14,7 @@ I_Mesh('XMIN') = -1.0; I_Mesh('XMAX') = 1.0;
 I_Mesh('YMIN') = -1.0; I_Mesh('YMAX') = 1.0;
 I_Mesh('ZMIN') = -1.0; I_Mesh('ZMAX') = 1.0;
 
-I_TI('final_time') = 25; %125
+I_TI('final_time') = 25; % 125, 25
 I_TI('cfl') = 0.4;
 
 dt = I_TI('cfl') * 2.0 / double(I_Mesh('NODES_Y'));

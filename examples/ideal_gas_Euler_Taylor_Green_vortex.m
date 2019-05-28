@@ -13,7 +13,7 @@ I_Mesh('XMIN') = 0.0; I_Mesh('XMAX') = 6.283185307179586; % = 2*pi
 I_Mesh('YMIN') = 0.0; I_Mesh('YMAX') = 6.283185307179586;
 I_Mesh('ZMIN') = 0.0; I_Mesh('ZMAX') = 6.283185307179586;
 
-I_TI('final_time') = 10;
+I_TI('final_time') = 20;
 I_TI('cfl') = 0.85;
 
 dt = I_TI('cfl') * (I_Mesh('YMAX') / double(I_Mesh('NODES_Y')-1)) / 10;

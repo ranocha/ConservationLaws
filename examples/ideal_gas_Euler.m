@@ -8,12 +8,12 @@ BalanceLaws.prepare_vars();
 global I_Mesh I_TI I_BalanceLaws I_Tech I_RunOps I_Results
 
 N = uint32(64);
-I_Mesh('NODES_X') = N; I_Mesh('NODES_Y') = N; I_Mesh('NODES_Z') = N;
+I_Mesh('NODES_X') = N; I_Mesh('NODES_Y') = N; I_Mesh('NODES_Z') = 8;
 I_Mesh('XMIN') = 0.0; I_Mesh('XMAX') = 6.283185307179586; % = 2*pi
 I_Mesh('YMIN') = 0.0; I_Mesh('YMAX') = 6.283185307179586;
 I_Mesh('ZMIN') = 0.0; I_Mesh('ZMAX') = 6.283185307179586;
 
-I_TI('final_time') = 2;
+I_TI('final_time') = 20;
 I_TI('cfl') = 0.85;
 
 dt = I_TI('cfl') * (I_Mesh('YMAX') / double(I_Mesh('NODES_Y')-1)) / 10;
@@ -44,11 +44,11 @@ else
     I_Tech('optimizations') = ' -cl-mad-enable -cl-no-signed-zeros -cl-finite-math-only';
 end
 
-I_RunOps('periodic_x') = 'NONE'; % 'NONE', 'USE_PERIODIC_X'; must be set to 'USE_PERIODIC_X'
+I_RunOps('periodic_x') = 'USE_PERIODIC_X'; % 'NONE', 'USE_PERIODIC_X'; must be set to 'USE_PERIODIC_X'
                                        % if periodic boundary conditions in x-direction should be used
-I_RunOps('periodic_y') = 'NONE'; % 'NONE', 'USE_PERIODIC_Y'; must be set to 'USE_PERIODIC_Y'
+I_RunOps('periodic_y') = 'USE_PERIODIC_Y'; % 'NONE', 'USE_PERIODIC_Y'; must be set to 'USE_PERIODIC_Y'
                                        % if periodic boundary conditions in y-direction should be used
-I_RunOps('periodic_z') = 'NONE'; % 'NONE', 'USE_PERIODIC_Z'; must be set to 'USE_PERIODIC_Z'
+I_RunOps('periodic_z') = 'USE_PERIODIC_Z'; % 'NONE', 'USE_PERIODIC_Z'; must be set to 'USE_PERIODIC_Z'
                                        % if periodic boundary conditions in z-direction should be used
 
 I_RunOps('order') = 4; I_RunOps('operator_form') = 'classical'; % order: 2, 4, 6; operator_form: classical, extended
