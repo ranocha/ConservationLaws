@@ -8,7 +8,7 @@ BalanceLaws.prepare_vars();
 global I_Mesh I_TI I_BalanceLaws I_Tech I_RunOps I_Results
 
 N = uint32(64);
-I_Mesh('NODES_X') = N; I_Mesh('NODES_Y') = N; I_Mesh('NODES_Z') = 8;
+I_Mesh('NODES_X') = N; I_Mesh('NODES_Y') = N; I_Mesh('NODES_Z') = uint32(8);
 I_Mesh('XMIN') = 0.0; I_Mesh('XMAX') = 6.283185307179586; % = 2*pi
 I_Mesh('YMIN') = 0.0; I_Mesh('YMAX') = 6.283185307179586;
 I_Mesh('ZMIN') = 0.0; I_Mesh('ZMAX') = 6.283185307179586;

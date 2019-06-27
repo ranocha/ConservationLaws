@@ -87,6 +87,19 @@ inline void compute_du_dt(REAL time, uint ix, uint iy, uint iz, global REAL cons
   add_surface_terms(time, ix, iy, iz, u, du_dt);
 }
 
+kernel void compute_time_derivative(global REAL *du_dt, global REAL *u, global REAL *time) {
+    uint ix = get_global_id(0);
+    uint iy = get_global_id(1);
+    uint iz = get_global_id(2);
+
+    REAL du[NUM_CONSERVED_VARS];
+    compute_du_dt(time[1], ix, iy, iz, u, du);
+
+    for (uint i = 0; i < NUM_CONSERVED_VARS; ++i) {
+        set_field_component(ix, iy, iz, i, du_dt, du[i]);
+    }
+}
+
 //--------------------------------------------------------------------------------------------------
 // Time update kernels
 //--------------------------------------------------------------------------------------------------

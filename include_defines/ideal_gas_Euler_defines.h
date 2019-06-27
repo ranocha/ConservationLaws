@@ -29,7 +29,7 @@ TODO: Finite difference fluxes
 TODO: Entropy conservative fluxes
   - Variants of Hicken, Crean (2018)
 */
-#define USE_FLUX_KennedyGruber
+#define USE_FLUX_Ranocha
 
 
 /* available numerical boundary fluxes:
